@@ -9,7 +9,7 @@ const createAdmin = async () => {
 
     if (!name || !email || !password) {
       throw new Error(
-        "ADMIN_NAME, ADMIN_EMAIL, and ADMIN_PASSWORD are required",
+        "ADMIN_NAME, ADMIN_EMAIL and ADMIN_PASSWORD are required",
       );
     }
 
@@ -30,10 +30,9 @@ const createAdmin = async () => {
       [name, email, passwordHash],
     );
 
-    console.log("Admin created:");
-    console.log(result.rows[0]);
+    console.log("Admin created:", result.rows[0]);
   } catch (error) {
-    console.error("Error creating admin:", error.message);
+    console.error("Error creating admin:", error);
   } finally {
     await pool.end();
   }
